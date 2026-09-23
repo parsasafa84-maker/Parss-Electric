@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>پرداخت سفارش | پارس الکتریک</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .payment-page {
+            padding: 40px 0 70px;
+        }
+
+        .payment-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .payment-title h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .payment-title p {
+            color: #777;
+        }
+
+        .payment-layout {
+            max-width: 950px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 25px;
+            align-items: start;
+        }
+
+        .payment-box,
+        .payment-summary {
+            background: #fff;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .payment-box h2,
+        .payment-summary h2 {
+            font-size: 19px;
+            margin-bottom: 22px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .bank-card {
+            background: #101828;
+            color: #fff;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .bank-card-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .bank-card-title i {
+            font-size: 30px;
+            color: #ffc107;
+        }
+
+        .card-number {
+            direction: ltr;
+            text-align: center;
+            font-size: 22px;
+            letter-spacing: 3px;
+            margin: 25px 0;
+        }
+
+        .card-info {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .payment-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .payment-method {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            cursor: pointer;
+        }
+
+        .payment-method:hover {
+            border-color: #ffc107;
+        }
+
+        .payment-method input {
+            accent-color: #ffc107;
+        }
+
+        .payment-method i {
+            font-size: 20px;
+            width: 25px;
+        }
+
+        .payment-method-info strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .payment-method-info span {
+            color: #777;
+            font-size: 13px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 13px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .summary-row.total {
+            border-bottom: none;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .payment-total {
+            color: #d99b00;
+        }
+
+        .pay-button {
+            width: 100%;
+            border: none;
+            background: #ffc107;
+            color: #111;
+            padding: 15px;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .pay-button:hover {
+            background: #e0a800;
+        }
+
+        .security-note {
+            margin-top: 20px;
+            padding: 14px;
+            background: #f7f8fa;
+            border-radius: 9px;
+            color: #666;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .empty-payment {
+            max-width: 600px;
+            margin: 50px auto;
+            text-align: center;
+            background: #fff;
+            padding: 50px 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        @media (max-width: 800px) {
+            .payment-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .payment-box,
+            .payment-summary {
+                padding: 18px;
+            }
+
+            .card-number {
+                font-size: 17px;
+                letter-spacing: 2px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+<header class="main-header">
+
+    <div class="container header-content">
+
+        <a href="index.html" class="logo">
+            <i class="fas fa-bolt"></i>
+            پارس الکتریک
+        </a>
+
+        <div class="header-actions">
+
+            <a href="cart.html" class="header-action">
+                <i class="fas fa-shopping-cart"></i>
+                سبد خرید
+            </a>
+
+            <button id="themeToggle" class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="payment-page">
+
+    <div class="container">
+
+        <div class="payment-title">
+
+            <h1>پرداخت سفارش</h1>
+
+            <p>
+                اطلاعات سفارش را بررسی کنید و روش پرداخت را انتخاب کنید.
+            </p>
+
+        </div>
+
+
+        <div id="paymentContent">
+
+            <div class="payment-layout">
+
+                <!-- بخش پرداخت -->
+
+                <div class="payment-box">
+
+                    <h2>
+                        <i class="fas fa-credit-card"></i>
+                        انتخاب روش پرداخت
+                    </h2>
+
+
+                    <div class="payment-methods">
+
+                        <label class="payment-method">
+
+                            <input
+                                type="radio"
+                                name="paymentMethod"
+                                value="online"
+                                checked>
+
+                            <i class="fas fa-globe"></i>
+
+                            <div class="payment-method-info">
+
+                                <strong>
+                                    پرداخت آنلاین
+                                </strong>
+
+                                <span>
+                                    پرداخت از طریق درگاه بانکی
+                                </span>
+
+                            </div>
+
+                        </label>
+
+
+                        <label class="payment-method">
+
+                            <input
+                                type="radio"
+                                name="paymentMethod"
+                                value="card">
+
+                            <i class="fas fa-building-columns"></i>
+
+                            <div class="payment-method-info">
+
+                                <strong>
+                                    کارت به کارت
+                                </strong>
+
+                                <span>
+                                    پرداخت دستی و ارسال رسید
+                                </span>
+
+                            </div>
+
+                        </label>
+
+                    </div>
+
+
+                    <!-- اطلاعات کارت نمونه -->
+
+                    <div class="bank-card">
+
+                        <div class="bank-card-title">
+
+                            <strong>
+                                حساب پارس الکتریک
+                            </strong>
+
+                            <i class="fas fa-building-columns"></i>
+
+                        </div>
+
+
+                        <div class="card-number">
+                            6037 - 9918 - 1234 - 5678
+                        </div>
+
+
+                        <div class="card-info">
+
+                            <span>
+                                به نام پارس الکتریک
+                            </span>
+
+                            <span>
+                                بانک نمونه
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="security-note">
+
+                        <i class="fas fa-shield-halved"></i>
+
+                        اطلاعات پرداخت شما در این نسخه به‌صورت آزمایشی
+                        پردازش می‌شود و به درگاه واقعی بانکی متصل نیست.
+
+                    </div>
+
+
+                    <button
+                        id="payButton"
+                        class="pay-button">
+
+                        پرداخت و ثبت سفارش
+                        <i class="fas fa-arrow-left"></i>
+
+                    </button>
+
+                </div>
+
+
+                <!-- خلاصه سفارش -->
+
+                <aside class="payment-summary">
+
+                    <h2>
+                        خلاصه سفارش
+                    </h2>
+
+
+                    <div class="summary-row">
+
+                        <span>
+                            تعداد کالا
+                        </span>
+
+                        <strong id="paymentCount">
+                            ۰
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-row">
+
+                        <span>
+                            مبلغ کالاها
+                        </span>
+
+                        <strong id="paymentSubtotal">
+                            ۰ تومان
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-row">
+
+                        <span>
+                            تخفیف
+                        </span>
+
+                        <strong id="paymentDiscount">
+                            ۰ تومان
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-row">
+
+                        <span>
+                            ارسال
+                        </span>
+
+                        <strong id="paymentShipping">
+                            رایگان
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-row total">
+
+                        <span>
+                            مبلغ قابل پرداخت
+                        </span>
+
+                        <strong
+                            id="paymentTotal"
+                            class="payment-total">
+
+                            ۰ تومان
+
+                        </strong>
+
+                    </div>
+
+
+                    <a
+                        href="checkout.html"
+                        style="
+                            display:block;
+                            text-align:center;
+                            margin-top:15px;
+                            color:#555;
+                            text-decoration:none;
+                            font-size:14px;
+                        ">
+
+                        <i class="fas fa-arrow-right"></i>
+                        بازگشت و ویرایش اطلاعات
+
+                    </a>
+
+                </aside>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<script src="js/products.js"></script>
+<script src="js/payment.js"></script>
+
+</body>
+
+</html>

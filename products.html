@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>محصولات | پارس الکتریک</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <style>
+
+        .products-page {
+            padding: 35px 0 70px;
+        }
+
+        .products-layout {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 25px;
+            align-items: start;
+        }
+
+        .filters-box {
+            background: #fff;
+            border-radius: 18px;
+            padding: 22px;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 5px 25px rgba(0,0,0,.05);
+        }
+
+        .dark-mode .filters-box {
+            background: #182230;
+        }
+
+        .filter-title {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 22px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .dark-mode .filter-title {
+            border-color: #303b4b;
+        }
+
+        .filter-group {
+            margin-bottom: 25px;
+        }
+
+        .filter-group h3 {
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        .filter-group label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .filter-group input[type="checkbox"] {
+            accent-color: #ffc107;
+        }
+
+        .price-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .price-inputs input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .dark-mode .price-inputs input {
+            background: #111a27;
+            color: #fff;
+            border-color: #303b4b;
+        }
+
+        .apply-filter {
+            width: 100%;
+            border: none;
+            background: #ffc107;
+            color: #101828;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .products-toolbar {
+            background: #fff;
+            border-radius: 18px;
+            padding: 18px 22px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .dark-mode .products-toolbar {
+            background: #182230;
+        }
+
+        .products-count {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .sort-select {
+            padding: 10px 14px;
+            border: 1px solid #ddd;
+            border-radius: 9px;
+            background: #fff;
+            cursor: pointer;
+        }
+
+        .dark-mode .sort-select {
+            background: #111a27;
+            color: #fff;
+            border-color: #303b4b;
+        }
+
+        .empty-products {
+            background: #fff;
+            padding: 70px 20px;
+            text-align: center;
+            border-radius: 18px;
+        }
+
+        .dark-mode .empty-products {
+            background: #182230;
+        }
+
+        .empty-products i {
+            font-size: 55px;
+            color: #ffc107;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 900px) {
+
+            .products-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .filters-box {
+                position: static;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .products-toolbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- هدر -->
+
+    <header class="main-header">
+
+        <div class="container header-content">
+
+            <a href="index.html" class="logo">
+
+                <div class="logo-icon">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+
+                <div class="logo-text">
+                    <strong>پارس الکتریک</strong>
+                    <span>فروشگاه تخصصی برق</span>
+                </div>
+
+            </a>
+
+            <div class="header-actions">
+
+                <a
+                    href="index.html"
+                    class="header-action"
+                >
+                    <i class="fa-solid fa-house"></i>
+                    <span>خانه</span>
+                </a>
+
+                <button
+                    class="header-action theme-toggle"
+                    id="themeToggle"
+                    type="button"
+                >
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- صفحه محصولات -->
+
+    <main class="products-page">
+
+        <div class="container">
+
+            <div style="margin-bottom:25px;">
+
+                <a
+                    href="index.html"
+                    style="color:#666;"
+                >
+                    <i class="fa-solid fa-arrow-right"></i>
+                    بازگشت به فروشگاه
+                </a>
+
+                <h1 style="margin-top:15px;">
+                    همه محصولات
+                </h1>
+
+            </div>
+
+
+            <div class="products-layout">
+
+
+                <!-- فیلترها -->
+
+                <aside class="filters-box">
+
+                    <div class="filter-title">
+                        <i class="fa-solid fa-filter"></i>
+                        فیلتر محصولات
+                    </div>
+
+
+                    <!-- دسته‌بندی -->
+
+                    <div class="filter-group">
+
+                        <h3>
+                            دسته‌بندی
+                        </h3>
+
+                        <div id="categoryFilters"></div>
+
+                    </div>
+
+
+                    <!-- برند -->
+
+                    <div class="filter-group">
+
+                        <h3>
+                            برند
+                        </h3>
+
+                        <div id="brandFilters"></div>
+
+                    </div>
+
+
+                    <!-- قیمت -->
+
+                    <div class="filter-group">
+
+                        <h3>
+                            محدوده قیمت
+                        </h3>
+
+                        <div class="price-inputs">
+
+                            <input
+                                type="number"
+                                id="minPrice"
+                                placeholder="حداقل"
+                            >
+
+                            <input
+                                type="number"
+                                id="maxPrice"
+                                placeholder="حداکثر"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="apply-filter"
+                        id="applyFilters"
+                    >
+                        اعمال فیلتر
+                    </button>
+
+                </aside>
+
+
+                <!-- محصولات -->
+
+                <section>
+
+                    <div class="products-toolbar">
+
+                        <div class="products-count">
+                            <span id="productsCount">
+                                0
+                            </span>
+                            محصول
+                        </div>
+
+
+                        <select
+                            id="sortProducts"
+                            class="sort-select"
+                        >
+
+                            <option value="default">
+                                مرتب‌سازی پیش‌فرض
+                            </option>
+
+                            <option value="cheap">
+                                ارزان‌ترین
+                            </option>
+
+                            <option value="expensive">
+                                گران‌ترین
+                            </option>
+
+                            <option value="newest">
+                                جدیدترین
+                            </option>
+
+                            <option value="popular">
+                                محبوب‌ترین
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div
+                        class="products-grid"
+                        id="productsContainer"
+                    ></div>
+
+                </section>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script src="js/products.js"></script>
+
+    <script src="js/main.js"></script>
+
+    <script src="js/products-page.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>سفارش با موفقیت ثبت شد | پارس الکتریک</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .success-page {
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 20px;
+        }
+
+        .success-box {
+            width: 100%;
+            max-width: 650px;
+            background: #fff;
+            border-radius: 18px;
+            padding: 45px 30px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.07);
+        }
+
+        .success-icon {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 25px;
+            border-radius: 50%;
+            background: #ffc107;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 45px;
+            color: #111;
+        }
+
+        .success-box h1 {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .success-box > p {
+            color: #666;
+            line-height: 2;
+            margin-bottom: 25px;
+        }
+
+        .order-number-box {
+            background: #f7f8fa;
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 25px;
+        }
+
+        .order-number-box span {
+            display: block;
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .order-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #101828;
+            direction: ltr;
+            letter-spacing: 2px;
+        }
+
+        .success-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .info-item {
+            background: #fafafa;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 14px;
+        }
+
+        .info-item i {
+            color: #e0a800;
+            margin-left: 5px;
+        }
+
+        .info-item span {
+            color: #777;
+            font-size: 13px;
+        }
+
+        .success-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .success-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 13px 24px;
+            border-radius: 9px;
+            text-decoration: none;
+            font-family: inherit;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .success-btn.primary {
+            background: #ffc107;
+            color: #111;
+        }
+
+        .success-btn.primary:hover {
+            background: #e0a800;
+        }
+
+        .success-btn.secondary {
+            background: #101828;
+            color: #fff;
+        }
+
+        .success-btn.secondary:hover {
+            opacity: 0.9;
+        }
+
+        @media (max-width: 600px) {
+
+            .success-box {
+                padding: 35px 18px;
+            }
+
+            .success-box h1 {
+                font-size: 23px;
+            }
+
+            .success-info {
+                grid-template-columns: 1fr;
+            }
+
+            .success-actions {
+                flex-direction: column;
+            }
+
+            .success-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+<header class="main-header">
+
+    <div class="container header-content">
+
+        <a href="index.html" class="logo">
+            <i class="fas fa-bolt"></i>
+            پارس الکتریک
+        </a>
+
+        <div class="header-actions">
+
+            <a href="products.html" class="header-action">
+                <i class="fas fa-store"></i>
+                فروشگاه
+            </a>
+
+            <button id="themeToggle" class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="success-page">
+
+    <div class="success-box">
+
+        <div class="success-icon">
+            <i class="fas fa-check"></i>
+        </div>
+
+
+        <h1>
+            سفارش شما با موفقیت ثبت شد 🎉
+        </h1>
+
+
+        <p>
+            پرداخت شما با موفقیت انجام شد و سفارش شما
+            برای پردازش به پارس الکتریک ارسال شد.
+        </p>
+
+
+        <div class="order-number-box">
+
+            <span>
+                شماره سفارش شما
+            </span>
+
+            <div
+                id="orderNumber"
+                class="order-number">
+                -
+            </div>
+
+        </div>
+
+
+        <div class="success-info">
+
+            <div class="info-item">
+
+                <i class="fas fa-credit-card"></i>
+
+                <span>
+                    وضعیت پرداخت:
+                </span>
+
+                <strong id="paymentStatus">
+                    موفق
+                </strong>
+
+            </div>
+
+
+            <div class="info-item">
+
+                <i class="fas fa-box"></i>
+
+                <span>
+                    وضعیت سفارش:
+                </span>
+
+                <strong id="orderStatus">
+                    در حال پردازش
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="success-actions">
+
+            <a
+                href="index.html"
+                class="success-btn primary">
+
+                <i class="fas fa-home"></i>
+                بازگشت به صفحه اصلی
+
+            </a>
+
+
+            <a
+                href="products.html"
+                class="success-btn secondary">
+
+                <i class="fas fa-shopping-bag"></i>
+                ادامه خرید
+
+            </a>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<script src="js/order-success.js"></script>
+
+</body>
+
+</html>

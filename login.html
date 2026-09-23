@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ورود / ثبت‌نام | پارس الکتریک</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .auth-page {
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .auth-box {
+            width: 100%;
+            max-width: 450px;
+            background: #fff;
+            border-radius: 18px;
+            padding: 35px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.07);
+        }
+
+        .auth-logo {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .auth-logo i {
+            font-size: 42px;
+            color: #ffc107;
+            margin-bottom: 10px;
+        }
+
+        .auth-logo h1 {
+            font-size: 25px;
+            margin-bottom: 8px;
+        }
+
+        .auth-logo p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .auth-tabs {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 25px;
+        }
+
+        .auth-tab {
+            flex: 1;
+            border: none;
+            background: transparent;
+            padding: 13px;
+            font-family: inherit;
+            font-size: 15px;
+            cursor: pointer;
+            color: #777;
+        }
+
+        .auth-tab.active {
+            color: #111;
+            font-weight: bold;
+            border-bottom: 3px solid #ffc107;
+        }
+
+        .auth-form {
+            display: none;
+        }
+
+        .auth-form.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 17px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper i {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+        }
+
+        .input-wrapper input {
+            width: 100%;
+            padding: 13px 42px 13px 14px;
+            border: 1px solid #ddd;
+            border-radius: 9px;
+            font-family: inherit;
+            font-size: 14px;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        .input-wrapper input:focus {
+            border-color: #ffc107;
+            box-shadow: 0 0 0 3px rgba(255,193,7,0.12);
+        }
+
+        .auth-button {
+            width: 100%;
+            border: none;
+            background: #ffc107;
+            color: #111;
+            padding: 14px;
+            border-radius: 9px;
+            font-family: inherit;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        .auth-button:hover {
+            background: #e0a800;
+        }
+
+        .auth-message {
+            display: none;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .auth-message.error {
+            display: block;
+            background: #fff0f0;
+            color: #c62828;
+        }
+
+        .auth-message.success {
+            display: block;
+            background: #effaf1;
+            color: #287a35;
+        }
+
+        .auth-note {
+            text-align: center;
+            color: #888;
+            font-size: 12px;
+            margin-top: 20px;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 500px) {
+            .auth-box {
+                padding: 25px 18px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+<header class="main-header">
+
+    <div class="container header-content">
+
+        <a href="index.html" class="logo">
+            <i class="fas fa-bolt"></i>
+            پارس الکتریک
+        </a>
+
+        <div class="header-actions">
+
+            <a href="products.html" class="header-action">
+                <i class="fas fa-store"></i>
+                فروشگاه
+            </a>
+
+            <button id="themeToggle" class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="auth-page">
+
+    <div class="auth-box">
+
+        <div class="auth-logo">
+
+            <i class="fas fa-bolt"></i>
+
+            <h1>
+                پارس الکتریک
+            </h1>
+
+            <p>
+                به فروشگاه اینترنتی پارس الکتریک خوش آمدید
+            </p>
+
+        </div>
+
+
+        <!-- تب‌ها -->
+
+        <div class="auth-tabs">
+
+            <button
+
+                data-tab="login">
+
+    <div class="auth-tabs">
+
+    <button
+        class="auth-tab active"
+        data-tab="login">
+
+        ورود
+
+    </button>
+
+    <button
+        class="auth-tab"
+        data-tab="register">
+
+        ثبت‌ نام
+
+    </button>
+
+</div>
+
+
+        <div
+            id="authMessage"
+            class="auth-message">
+        </div>
+
+
+        <!-- فرم ورود -->
+
+        <form
+            id="loginForm"
+            class="auth-form active">
+
+            <div class="form-group">
+
+                <label for="loginPhone">
+                    شماره موبایل
+                </label>
+
+                <div class="input-wrapper">
+
+                    <i class="fas fa-mobile-screen"></i>
+
+                    <input
+                        type="tel"
+                        id="loginPhone"
+                        placeholder="09123456789">
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="loginPassword">
+                    رمز عبور
+                </label>
+
+                <div class="input-wrapper">
+
+                    <i class="fas fa-lock"></i>
+
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        placeholder="رمز عبور">
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="auth-button">
+
+                ورود به حساب
+
+            </button>
+
+            <a href="forgot-password.html" class="forgot-password">
+
+                رمز عبورم را فراموش کرده‌ام
+                
+            </a>
+
+        </form>
+
+
+        <!-- فرم ثبت‌نام -->
+
+        <form
+            id="registerForm"
+            class="auth-form">
+
+            <div class="form-group">
+
+                <label for="registerName">
+                    نام و نام خانوادگی
+                </label>
+
+                <div class="input-wrapper">
+
+                    <i class="fas fa-user"></i>
+
+                    <input
+                        type="text"
+                        id="registerName"
+                        placeholder="نام و نام خانوادگی">
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="registerPhone">
+                    شماره موبایل
+                </label>
+
+                <div class="input-wrapper">
+
+                    <i class="fas fa-mobile-screen"></i>
+
+                    <input
+                        type="tel"
+                        id="registerPhone"
+                        placeholder="09123456789">
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="registerPassword">
+                    رمز عبور
+                </label>
+
+                <div class="input-wrapper">
+
+                    <i class="fas fa-lock"></i>
+
+                    <input
+                        type="password"
+                        id="registerPassword"
+                        placeholder="حداقل ۶ کاراکتر">
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="registerPasswordConfirm">
+                    تکرار رمز عبور
+                </label>
+
+                <div class="input-wrapper">
+
+                    <i class="fas fa-lock"></i>
+
+                    <input
+                        type="password"
+                        id="registerPasswordConfirm"
+                        placeholder="تکرار رمز عبور">
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="auth-button">
+
+                ایجاد حساب کاربری
+
+            </button>
+
+        </form>
+
+
+        <div class="auth-note">
+
+            با ثبت‌نام در پارس الکتریک، حساب کاربری شما
+            در همین مرورگر ذخیره می‌شود.
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<script src="js/auth.js"></script>
+
+</body>
+
+</html>

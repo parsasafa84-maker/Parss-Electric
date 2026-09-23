@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>علاقه‌مندی‌ها | پارس الکتریک</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        .favorites-page {
+            padding: 40px 0;
+            min-height: 70vh;
+        }
+
+        .favorites-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .favorites-header h1 {
+            margin: 0;
+        }
+
+        .favorites-header span {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .favorites-empty {
+            background: #fff;
+            border-radius: 16px;
+            padding: 70px 20px;
+            text-align: center;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.06);
+        }
+
+        .favorites-empty i {
+            font-size: 65px;
+            color: #ffc107;
+            margin-bottom: 20px;
+        }
+
+        .favorites-empty h2 {
+            margin-bottom: 10px;
+        }
+
+        .favorites-empty p {
+            color: #777;
+            margin-bottom: 25px;
+        }
+
+        .favorites-empty a {
+            display: inline-block;
+            background: #ffc107;
+            color: #101828;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 9px;
+            font-weight: bold;
+        }
+
+        .favorites-empty a:hover {
+            background: #e0a800;
+        }
+
+        .favorites-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .favorite-card {
+            position: relative;
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            transition: 0.2s;
+        }
+
+        .favorite-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .favorite-image {
+            height: 220px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .favorite-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .favorite-remove {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            width: 38px;
+            height: 38px;
+            border: none;
+            border-radius: 50%;
+            background: #fff;
+            color: #e53935;
+            cursor: pointer;
+            font-size: 17px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        }
+
+        .favorite-remove:hover {
+            background: #e53935;
+            color: #fff;
+        }
+
+        .favorite-body {
+            padding: 18px;
+        }
+
+        .favorite-brand {
+            color: #888;
+            font-size: 13px;
+            margin-bottom: 7px;
+        }
+
+        .favorite-title {
+            height: 48px;
+            overflow: hidden;
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        .favorite-rating {
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .favorite-rating i {
+            color: #ffc107;
+        }
+
+        .favorite-price {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .favorite-add {
+            width: 100%;
+            border: none;
+            background: #ffc107;
+            color: #101828;
+            padding: 11px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: bold;
+        }
+
+        .favorite-add:hover {
+            background: #e0a800;
+        }
+
+        .favorite-stock {
+            font-size: 12px;
+            color: #2e7d32;
+            margin-bottom: 10px;
+        }
+
+        .favorite-stock.out {
+            color: #d32f2f;
+        }
+
+        body.dark-mode .favorite-card,
+        body.dark-mode .favorites-empty {
+            background: #182230;
+        }
+
+        body.dark-mode .favorite-remove {
+            background: #202d3d;
+            color: #ff6b6b;
+        }
+
+        body.dark-mode .favorite-title {
+            color: #fff;
+        }
+
+        @media (max-width: 1000px) {
+            .favorites-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 700px) {
+            .favorites-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 450px) {
+            .favorites-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .favorites-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="main-header">
+
+    <div class="container header-content">
+
+        <a href="index.html" class="logo">
+            <span>پارس</span> الکتریک
+        </a>
+
+        <div class="header-actions">
+
+            <a href="profile.html" class="header-action">
+                <i class="fa-solid fa-user"></i>
+                <span>حساب کاربری</span>
+            </a>
+
+            <a href="cart.html" class="header-action">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>سبد خرید</span>
+            </a>
+
+            <button id="themeToggle" class="theme-toggle">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="favorites-page">
+
+    <div class="container">
+
+        <div class="favorites-header">
+
+            <div>
+                <h1>
+                    <i class="fa-solid fa-heart"></i>
+                    علاقه‌مندی‌های من
+                </h1>
+
+                <span id="favoritesCount">
+                    0 محصول
+                </span>
+            </div>
+
+            <a href="products.html" class="header-action">
+                <i class="fa-solid fa-arrow-right"></i>
+                ادامه خرید
+            </a>
+
+        </div>
+
+
+        <!-- محصولات علاقه‌مندی -->
+        <div
+            id="favoritesContainer"
+            class="favorites-grid">
+        </div>
+
+
+        <!-- حالت خالی -->
+        <div
+            id="favoritesEmpty"
+            class="favorites-empty"
+            style="display: none;">
+
+            <i class="fa-regular fa-heart"></i>
+
+            <h2>
+                هنوز محصولی به علاقه‌مندی‌ها اضافه نکرده‌اید
+            </h2>
+
+            <p>
+                محصولاتی که دوست دارید را با زدن قلب کنار آن‌ها ذخیره کنید.
+            </p>
+
+            <a href="products.html">
+                مشاهده محصولات
+            </a>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<script src="js/products.js"></script>
+<script src="js/favorites.js"></script>
+
+</body>
+</html>

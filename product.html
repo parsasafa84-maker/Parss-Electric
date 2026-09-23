@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>محصول | پارس الکتریک</title>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- استایل اصلی -->
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <style>
+
+        /* ================================
+           صفحه محصول
+        ================================= */
+
+        .product-page {
+            padding: 40px 0 70px;
+        }
+
+        .product-detail {
+            background: #fff;
+            border-radius: 20px;
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 45px;
+            box-shadow: 0 5px 25px rgba(0,0,0,.05);
+        }
+
+        .dark-mode .product-detail {
+            background: #182230;
+        }
+
+        .product-detail-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 450px;
+            background: #f8f9fb;
+            border-radius: 18px;
+            padding: 30px;
+            position: relative;
+        }
+
+        .dark-mode .product-detail-image {
+            background: #111a27;
+        }
+
+        .product-detail-image img {
+            width: 100%;
+            max-width: 480px;
+            max-height: 450px;
+            object-fit: contain;
+        }
+
+        .product-detail-info {
+            padding: 10px 0;
+        }
+
+        .product-detail-brand {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .product-detail-title {
+            font-size: 28px;
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+
+        .product-detail-rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .detail-stars {
+            color: #ffc107;
+            font-size: 18px;
+        }
+
+        .product-detail-price-box {
+            background: #f8f9fb;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .dark-mode .product-detail-price-box {
+            background: #111a27;
+        }
+
+        .detail-old-price {
+            color: #999;
+            text-decoration: line-through;
+            font-size: 15px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .detail-price {
+            color: #e0a800;
+            font-size: 30px;
+            font-weight: 800;
+        }
+
+        .detail-stock {
+            margin: 20px 0;
+            font-weight: 600;
+        }
+
+        .stock-ok {
+            color: #16a34a;
+        }
+
+        .stock-no {
+            color: #dc2626;
+        }
+
+        .quantity-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 25px 0;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .quantity-controls button {
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: #f5f5f5;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .quantity-controls input {
+            width: 50px;
+            height: 40px;
+            border: none;
+            text-align: center;
+            font-size: 16px;
+            background: #fff;
+        }
+
+        .dark-mode .quantity-controls button,
+        .dark-mode .quantity-controls input {
+            background: #182230;
+            color: #fff;
+        }
+
+        .detail-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .detail-cart-btn {
+            flex: 1;
+            min-width: 220px;
+            border: none;
+            background: #ffc107;
+            color: #101828;
+            padding: 15px 25px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .detail-cart-btn:hover {
+            background: #e0a800;
+        }
+
+        .detail-favorite-btn {
+            width: 55px;
+            height: 55px;
+            border: 1px solid #ddd;
+            background: #fff;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 20px;
+            color: #555;
+        }
+
+        .detail-favorite-btn.active {
+            color: #e53935;
+        }
+
+        .product-description {
+            margin-top: 35px;
+            background: #fff;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 25px rgba(0,0,0,.05);
+        }
+
+        .dark-mode .product-description {
+            background: #182230;
+        }
+
+        .product-description h2 {
+            margin-bottom: 20px;
+        }
+
+        .product-description p {
+            line-height: 2.2;
+            color: #666;
+        }
+
+        .dark-mode .product-description p {
+            color: #ccc;
+        }
+
+        .back-to-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .dark-mode .back-to-home {
+            color: #ddd;
+        }
+
+        @media (max-width: 768px) {
+
+            .product-detail {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+
+            .product-detail-image {
+                min-height: 300px;
+            }
+
+            .product-detail-title {
+                font-size: 22px;
+            }
+
+            .detail-price {
+                font-size: 25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- هدر -->
+    <header class="main-header">
+
+        <div class="container header-content">
+
+            <a href="index.html" class="logo">
+
+                <div class="logo-icon">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+
+                <div class="logo-text">
+                    <strong>پارس الکتریک</strong>
+                    <span>فروشگاه تخصصی برق</span>
+                </div>
+
+            </a>
+
+            <div class="header-actions">
+
+                <a href="index.html" class="header-action">
+                    <i class="fa-solid fa-house"></i>
+                    <span>خانه</span>
+                </a>
+
+                <button
+                    class="header-action theme-toggle"
+                    id="themeToggle"
+                    type="button"
+                >
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- محتوای محصول -->
+    <main class="product-page">
+
+        <div class="container">
+
+            <a
+                href="index.html"
+                class="back-to-home"
+            >
+                <i class="fa-solid fa-arrow-right"></i>
+                بازگشت به فروشگاه
+            </a>
+
+
+            <div
+                class="product-detail"
+                id="productDetail"
+            >
+
+                <!-- اطلاعات محصول توسط JavaScript قرار می‌گیرد -->
+
+                <div style="
+                    grid-column:1/-1;
+                    text-align:center;
+                    padding:70px;
+                ">
+                    <i class="fa-solid fa-spinner fa-spin"></i>
+                    در حال بارگذاری محصول...
+                </div>
+
+            </div>
+
+
+            <!-- توضیحات -->
+            <section
+                class="product-description"
+                id="productDescription"
+            >
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- فایل محصولات -->
+    <script src="js/products.js"></script>
+
+    <!-- فایل صفحه محصول -->
+    <script src="js/product.js"></script>
+
+</body>
+
+</html>

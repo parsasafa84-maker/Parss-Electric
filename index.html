@@ -1,0 +1,1412 @@
+```html
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="پارس الکتریک - فروشگاه تخصصی سیم، کابل، تجهیزات برق و لوازم روشنایی">
+
+    <meta name="keywords"
+        content="سیم و کابل، لوازم برق، کلید و پریز، لامپ، فیوز، محافظ، برق صنعتی">
+
+    <meta name="author" content="پارس الکتریک">
+
+    <title>پارس الکتریک | فروشگاه تخصصی تجهیزات برق</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Responsive CSS -->
+    <link
+    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+    <!-- =========================
+     LOGO HERO
+========================== -->
+
+<section class="logo-hero">
+
+    <div class="logo-hero-glow"></div>
+
+    <div class="logo-hero-content">
+
+        <img
+            src="images/logo.png"
+            alt="لوگو"
+            class="hero-logo">
+
+    </div>
+
+</section>
+
+    <!-- =========================
+         TOP BAR
+    ========================== -->
+
+    <div class="top-bar">
+
+        <div class="container top-bar-content">
+
+            <div class="top-right">
+                <span>
+                    <i class="fa-solid fa-truck-fast"></i>
+                    ارسال سریع به سراسر کشور
+                </span>
+
+                <span>
+                    <i class="fa-solid fa-shield-halved"></i>
+                    ضمانت اصالت کالا
+                </span>
+            </div>
+
+            <div class="top-left">
+
+                <span>
+                    <i class="fa-solid fa-phone"></i>
+                    021-5555-1234
+                </span>
+
+                <span>
+                    <i class="fa-solid fa-headset"></i>
+                    پشتیبانی
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="main-header">
+
+        <div class="container header-content">
+
+            <!-- Logo -->
+
+            <a href="index.html" class="logo">
+
+                <div class="logo-icon">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+
+                <div class="logo-text">
+
+                    <strong>پارس الکتریک</strong>
+
+                    <small>
+                        فروشگاه تخصصی برق
+                    </small>
+
+                </div>
+
+            </a>
+
+
+            <!-- Search -->
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="جستجو در محصولات، برندها و دسته‌بندی‌ها..."
+                    autocomplete="off">
+
+                <button type="button" id="searchButton">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                </button>
+
+                <div id="searchResults" class="search-results"></div>
+
+            </div>
+
+
+<!-- Header Actions -->
+
+<div class="header-actions">
+
+    <!-- حساب کاربری -->
+    <div id="userMenu"></div>
+
+
+    <!-- Wishlist -->
+
+    <a href="favorites.html"
+        class="header-action icon-action">
+
+        <i class="fa-regular fa-heart"></i>
+
+        <span class="action-badge" id="wishlistCount">
+            0
+        </span>
+
+    </a>
+
+
+    <!-- Cart -->
+
+    <a href="cart.html"
+        class="header-action icon-action cart-action">
+
+        <i class="fa-solid fa-cart-shopping"></i>
+
+        <span class="action-badge" id="cartCount">
+            0
+        </span>
+
+    </a>
+
+
+    <!-- Dark Mode -->
+
+    <button
+        type="button"
+        class="theme-toggle"
+        id="themeToggle"
+        aria-label="تغییر حالت نمایش">
+
+        <i class="fa-solid fa-moon"></i>
+
+    </button>
+
+</div>
+
+
+
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <nav class="main-nav">
+
+        <div class="container nav-content">
+
+            <div class="categories-menu">
+
+                <button
+                    type="button"
+                    class="categories-button"
+                    id="categoriesButton">
+
+                    <i class="fa-solid fa-bars"></i>
+
+                    دسته‌بندی محصولات
+
+                    <i class="fa-solid fa-chevron-down"></i>
+
+                </button>
+
+
+                <div class="categories-dropdown" id="categoriesDropdown">
+
+                    <a href="products.html?category=wire">
+                        <i class="fa-solid fa-plug"></i>
+                        سیم و کابل
+                    </a>
+
+                    <a href="products.html?category=switch">
+                        <i class="fa-regular fa-lightbulb"></i>
+                        کلید و پریز
+                    </a>
+
+                    <a href="products.html?category=lamp">
+                        <i class="fa-solid fa-lightbulb"></i>
+                        لامپ و چراغ
+                    </a>
+
+                    <a href="products.html?category=protection">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        فیوز و محافظ
+                    </a>
+
+                    <a href="products.html?category=tools">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                        ابزارآلات
+                    </a>
+
+                    <a href="products.html?category=industrial">
+                        <i class="fa-solid fa-industry"></i>
+                        تجهیزات برق صنعتی
+                    </a>
+
+                    <a href="products.html?category=lighting">
+                        <i class="fa-solid fa-sun"></i>
+                        لوازم روشنایی
+                    </a>
+
+                    <a href="products.html?category=extension">
+                        <i class="fa-solid fa-plug-circle-bolt"></i>
+                        چندراهی و رابط
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="nav-links">
+
+                <a href="index.html" class="active">
+                    <i class="fa-solid fa-house"></i>
+                    صفحه اصلی
+                </a>
+
+                <a href="products.html">
+                    محصولات
+                </a>
+
+                <a href="#best-selling">
+                    پرفروش‌ها
+                </a>
+
+                <a href="#new-products">
+                    جدیدترین‌ها
+                </a>
+
+                <a href="#special-offers">
+                    پیشنهاد ویژه
+                </a>
+
+                <a href="#contact">
+                    تماس با ما
+                </a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main>
+
+
+        <!-- =========================
+             HERO
+        ========================== -->
+
+        <section class="hero-section">
+
+            <div class="container hero-grid">
+
+
+                <!-- Main Banner -->
+
+                <div class="hero-main">
+
+                    <div class="hero-content">
+
+                        <span class="hero-label">
+                            ⚡ فروش ویژه پارس الکتریک
+                        </span>
+
+                        <h1>
+                            تجهیزات برق با
+                            <strong>قیمت مناسب</strong>
+                        </h1>
+
+                        <p>
+                            خرید سیم، کابل، تجهیزات برق،
+                            لوازم روشنایی و محصولات الکتریکی
+                            با کیفیت و ضمانت اصالت کالا
+                        </p>
+
+                        <div class="hero-buttons">
+
+                            <a href="products.html"
+                                class="btn btn-primary">
+
+                                مشاهده محصولات
+
+                                <i class="fa-solid fa-arrow-left"></i>
+
+                            </a>
+
+                            <a href="#categories"
+                                class="btn btn-outline">
+
+                                دسته‌بندی‌ها
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="hero-electric">
+
+                        <i class="fa-solid fa-bolt"></i>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Side Banners -->
+
+                <div class="hero-side">
+
+                    <a href="products.html?filter=sale"
+                        class="small-banner banner-one">
+
+                        <div>
+
+                            <span>
+                                تخفیف ویژه
+                            </span>
+
+                            <strong>
+                                تا ۳۰٪
+                            </strong>
+
+                            <small>
+                                روی محصولات منتخب
+                            </small>
+
+                        </div>
+
+                        <i class="fa-solid fa-percent"></i>
+
+                    </a>
+
+
+                    <a href="products.html?category=wire"
+                        class="small-banner banner-two">
+
+                        <div>
+
+                            <span>
+                                انواع سیم و کابل
+                            </span>
+
+                            <strong>
+                                با ضمانت کیفیت
+                            </strong>
+
+                            <small>
+                                مشاهده محصولات
+                            </small>
+
+                        </div>
+
+                        <i class="fa-solid fa-cable-car"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             FEATURES
+        ========================== -->
+
+        <section class="features-section">
+
+            <div class="container features-grid">
+
+                <div class="feature-item">
+
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+
+                    <div>
+                        <strong>
+                            ارسال سریع
+                        </strong>
+
+                        <span>
+                            ارسال به سراسر کشور
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="feature-item">
+
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+
+                    <div>
+                        <strong>
+                            ضمانت اصالت
+                        </strong>
+
+                        <span>
+                            تضمین کیفیت کالا
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="feature-item">
+
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+
+                    <div>
+                        <strong>
+                            پشتیبانی
+                        </strong>
+
+                        <span>
+                            پاسخگویی همه‌روزه
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="feature-item">
+
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-credit-card"></i>
+                    </div>
+
+                    <div>
+                        <strong>
+                            پرداخت امن
+                        </strong>
+
+                        <span>
+                            پرداخت مطمئن و آسان
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CATEGORIES
+        ========================== -->
+
+        <section class="section categories-section"
+            id="categories">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            محصولات ما
+                        </span>
+
+                        <h2>
+                            دسته‌بندی محصولات
+                        </h2>
+
+                    </div>
+
+                    <a href="products.html"
+                        class="view-all">
+
+                        مشاهده همه
+
+                        <i class="fa-solid fa-arrow-left"></i>
+
+                    </a>
+
+                </div>
+
+
+                <div class="category-grid">
+
+
+                    <a href="products.html?category=wire"
+                        class="category-card">
+
+                        <div class="category-icon">
+                            <i class="fa-solid fa-plug"></i>
+                        </div>
+
+                        <h3>
+                            سیم و کابل
+                        </h3>
+
+                        <span>
+                            ۱۲۵ محصول
+                        </span>
+
+                    </a>
+
+
+                    <a href="products.html?category=switch"
+                        class="category-card">
+
+                        <div class="category-icon">
+                            <i class="fa-regular fa-lightbulb"></i>
+                        </div>
+
+                        <h3>
+                            کلید و پریز
+                        </h3>
+
+                        <span>
+                            ۸۶ محصول
+                        </span>
+
+                    </a>
+
+
+                    <a href="products.html?category=lamp"
+                        class="category-card">
+
+                        <div class="category-icon">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </div>
+
+                        <h3>
+                            لامپ و چراغ
+                        </h3>
+
+                        <span>
+                            ۹۸ محصول
+                        </span>
+
+                    </a>
+
+
+                    <a href="products.html?category=protection"
+                        class="category-card">
+
+                        <div class="category-icon">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+
+                        <h3>
+                            فیوز و محافظ
+                        </h3>
+
+                        <span>
+                            ۶۴ محصول
+                        </span>
+
+                    </a>
+
+
+                    <a href="products.html?category=tools"
+                        class="category-card">
+
+                        <div class="category-icon">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </div>
+
+                        <h3>
+                            ابزارآلات
+                        </h3>
+
+                        <span>
+                            ۷۵ محصول
+                        </span>
+
+                    </a>
+
+
+                    <a href="products.html?category=industrial"
+                        class="category-card">
+
+                        <div class="category-icon">
+                            <i class="fa-solid fa-industry"></i>
+                        </div>
+
+                        <h3>
+                            برق صنعتی
+                        </h3>
+
+                        <span>
+                            ۵۷ محصول
+                        </span>
+
+                    </a>
+
+
+                    <a href="products.html?category=lighting"
+                        class="category-card">
+
+                        <div class="category-icon">
+                            <i class="fa-solid fa-sun"></i>
+                        </div>
+
+                        <h3>
+                            لوازم روشنایی
+                        </h3>
+
+                        <span>
+                            ۷۱ محصول
+                        </span>
+
+                    </a>
+
+
+                    <a href="products.html?category=extension"
+                        class="category-card">
+
+                        <div class="category-icon">
+                            <i class="fa-solid fa-plug-circle-bolt"></i>
+                        </div>
+
+                        <h3>
+                            چندراهی و رابط
+                        </h3>
+
+                        <span>
+                            ۴۲ محصول
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SPECIAL OFFERS
+        ========================== -->
+
+        <section class="section products-section special-offers"
+            id="special-offers">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            فرصت محدود
+                        </span>
+
+                        <h2>
+                            ⚡ پیشنهادهای ویژه
+                        </h2>
+
+                    </div>
+
+                    <a href="products.html?filter=sale"
+                        class="view-all">
+
+                        مشاهده همه
+
+                        <i class="fa-solid fa-arrow-left"></i>
+
+                    </a>
+
+                </div>
+
+
+                <div class="products-grid"
+                    id="specialProducts">
+
+                    <!-- Products generated by JavaScript -->
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             BEST SELLING
+        ========================== -->
+
+        <section class="section products-section"
+            id="best-selling">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            محبوب کاربران
+                        </span>
+
+                        <h2>
+                            🔥 پرفروش‌ترین محصولات
+                        </h2>
+
+                    </div>
+
+                    <a href="products.html?sort=popular"
+                        class="view-all">
+
+                        مشاهده همه
+
+                        <i class="fa-solid fa-arrow-left"></i>
+
+                    </a>
+
+                </div>
+
+
+                <div class="products-grid"
+                    id="bestSellingProducts">
+
+                    <!-- Products generated by JavaScript -->
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             NEW PRODUCTS
+        ========================== -->
+
+        <section class="section products-section"
+            id="new-products">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            تازه رسیده
+                        </span>
+
+                        <h2>
+                            🆕 جدیدترین محصولات
+                        </h2>
+
+                    </div>
+
+                    <a href="products.html?sort=newest"
+                        class="view-all">
+
+                        مشاهده همه
+
+                        <i class="fa-solid fa-arrow-left"></i>
+
+                    </a>
+
+                </div>
+
+
+                <div class="products-grid"
+                    id="newProducts">
+
+                    <!-- Products generated by JavaScript -->
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PROMOTIONAL BANNER
+        ========================== -->
+
+        <section class="promo-section">
+
+            <div class="container">
+
+                <div class="promo-box">
+
+                    <div class="promo-content">
+
+                        <span>
+                            ⚡ تخفیف ویژه این هفته
+                        </span>
+
+                        <h2>
+                            برق‌کشی مطمئن،
+                            با تجهیزات باکیفیت
+                        </h2>
+
+                        <p>
+                            محصولات منتخب پارس الکتریک
+                            را با تخفیف ویژه تهیه کنید.
+                        </p>
+
+                        <a href="products.html?filter=sale"
+                            class="btn btn-primary">
+
+                            مشاهده تخفیف‌ها
+
+                            <i class="fa-solid fa-arrow-left"></i>
+
+                        </a>
+
+                    </div>
+
+
+                    <div class="promo-icon">
+
+                        <i class="fa-solid fa-bolt"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             BRANDS
+        ========================== -->
+
+        <section class="section brands-section">
+
+            <div class="container">
+
+                <div class="section-heading center-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            برندهای منتخب
+                        </span>
+
+                        <h2>
+                            برندهای موجود در پارس الکتریک
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="brands-grid">
+
+                    <div class="brand-item">
+                        خراسان افشارنژاد
+                    </div>
+
+                    <div class="brand-item">
+                        سیمکو
+                    </div>
+
+                    <div class="brand-item">
+                        پارس شعاع توس
+                    </div>
+
+                    <div class="brand-item">
+                        ایران ترانسفو
+                    </div>
+
+                    <div class="brand-item">
+                        اشنایدر
+                    </div>
+
+                    <div class="brand-item">
+                        لگراند
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             REVIEWS
+        ========================== -->
+
+        <section class="section reviews-section">
+
+            <div class="container">
+
+                <div class="section-heading center-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            نظر مشتریان
+                        </span>
+
+                        <h2>
+                            مشتریان درباره ما چه می‌گویند؟
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="reviews-grid">
+
+
+                    <div class="review-card">
+
+                        <div class="review-top">
+
+                            <div class="review-user">
+
+                                <div class="user-avatar">
+                                    م
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        محمد رضایی
+                                    </strong>
+
+                                    <span>
+                                        خریدار سیم و کابل
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="review-stars">
+                                ★★★★★
+                            </div>
+
+                        </div>
+
+                        <p>
+                            کیفیت کابل خیلی خوب بود و بسته‌بندی
+                            هم کاملاً مناسب انجام شده بود.
+                        </p>
+
+                    </div>
+
+
+                    <div class="review-card">
+
+                        <div class="review-top">
+
+                            <div class="review-user">
+
+                                <div class="user-avatar">
+                                    ع
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        علی کریمی
+                                    </strong>
+
+                                    <span>
+                                        خریدار تجهیزات برق
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="review-stars">
+                                ★★★★★
+                            </div>
+
+                        </div>
+
+                        <p>
+                            قیمت مناسب و ارسال سریع داشت.
+                            برای خرید بعدی هم دوباره از همین فروشگاه خرید می‌کنم.
+                        </p>
+
+                    </div>
+
+
+                    <div class="review-card">
+
+                        <div class="review-top">
+
+                            <div class="review-user">
+
+                                <div class="user-avatar">
+                                    س
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        سعید احمدی
+                                    </strong>
+
+                                    <span>
+                                        خریدار لوازم روشنایی
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="review-stars">
+                                ★★★★☆
+                            </div>
+
+                        </div>
+
+                        <p>
+                            تنوع محصولات خوب بود و پشتیبانی هم
+                            قبل از خرید راهنمایی خوبی ارائه داد.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+<!-- =========================
+     DEVELOPER
+========================== -->
+
+<section class="developer-section">
+
+    <div class="container">
+
+        <div class="developer-card">
+
+            <div class="developer-icon">
+                <i class="fa-solid fa-code"></i>
+            </div>
+
+            <div class="developer-content">
+
+                <span class="developer-label">
+                    درباره سازنده
+                </span>
+
+                <h2>
+                    محمد پارسا صفا
+                </h2>
+
+                <p class="developer-role">
+                    سازنده و طراح وب‌سایت پارس الکتریک
+                </p>
+
+                <p class="developer-description">
+                    پارس الکتریک یک فروشگاه اینترنتی تخصصی در زمینه
+                    تجهیزات برق، سیم و کابل، کلید و پریز، لوازم روشنایی
+                    و ابزارآلات است که با هدف ایجاد تجربه‌ای ساده،
+                    مدرن و کاربردی برای خرید تجهیزات برق طراحی شده است.
+                </p>
+
+                <div class="developer-tech">
+
+                    <div class="tech-item">
+                        <i class="fa-brands fa-html5"></i>
+                        <span>HTML</span>
+                    </div>
+
+                    <div class="tech-item">
+                        <i class="fa-brands fa-css3-alt"></i>
+                        <span>CSS</span>
+                    </div>
+
+                    <div class="tech-item">
+                        <i class="fa-brands fa-js"></i>
+                        <span>JavaScript</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer" id="contact">
+
+        <div class="container footer-grid">
+
+
+            <div class="footer-column footer-about">
+
+                <a href="index.html" class="footer-logo">
+
+                    <div class="logo-icon">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+
+                    <strong>
+                        پارس الکتریک
+                    </strong>
+
+                </a>
+
+                <p>
+                    پارس الکتریک فروشگاه تخصصی سیم،
+                    کابل، تجهیزات برق و لوازم روشنایی
+                    با هدف ارائه محصولات باکیفیت و خدمات مناسب.
+                </p>
+
+
+                <div class="social-links">
+
+                    <a href="#" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="#" aria-label="Telegram">
+                        <i class="fa-brands fa-telegram"></i>
+                    </a>
+
+                    <a href="#" aria-label="WhatsApp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    دسترسی سریع
+                </h3>
+
+                <a href="index.html">
+                    صفحه اصلی
+                </a>
+
+                <a href="products.html">
+                    فروشگاه
+                </a>
+
+                <a href="favorites.html">
+                    علاقه‌مندی‌ها
+                </a>
+
+                <a href="profile.html">
+                    پیگیری سفارش
+                </a>
+
+                <a href="#">
+                    درباره ما
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    خدمات مشتریان
+                </h3>
+
+                <a href="#">
+                    قوانین و مقررات
+                </a>
+
+                <a href="#">
+                    شرایط بازگشت کالا
+                </a>
+
+                <a href="#">
+                    روش‌های ارسال
+                </a>
+
+                <a href="#">
+                    سوالات متداول
+                </a>
+
+                <a href="#">
+                    حریم خصوصی
+                </a>
+
+            </div>
+
+
+            <div class="footer-column footer-contact">
+
+                <h3>
+                    تماس با ما
+                </h3>
+
+                <p>
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    تهران، خیابان لاله‌زار،
+                    پاساژ برق، پلاک ۱۲۸
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-phone"></i>
+
+                    021-5555-1234
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-mobile-screen"></i>
+
+                    0912-123-4567
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-envelope"></i>
+
+                    parsasafa@gmail.com
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <div class="container footer-bottom-content">
+
+                <span>
+                    © ۱۴۰۵ پارس الکتریک - تمامی حقوق محفوظ است.
+                </span>
+
+                <span>
+                    طراحی و توسعه اختصاصی فروشگاه پارس الکتریک
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         MOBILE BOTTOM NAV
+    ========================== -->
+
+    <nav class="mobile-bottom-nav">
+
+        <a href="index.html" class="mobile-nav-item active">
+
+            <i class="fa-solid fa-house"></i>
+
+            <span>
+                خانه
+            </span>
+
+        </a>
+
+
+        <a href="products.html"
+            class="mobile-nav-item">
+
+            <i class="fa-solid fa-store"></i>
+
+            <span>
+                فروشگاه
+            </span>
+
+        </a>
+
+
+        <a href="favorites.html"
+            class="mobile-nav-item">
+
+            <i class="fa-regular fa-heart"></i>
+
+            <span>
+                علاقه‌مندی
+            </span>
+
+        </a>
+
+
+        <a href="cart.html"
+            class="mobile-nav-item mobile-cart">
+
+            <i class="fa-solid fa-cart-shopping"></i>
+
+            <span>
+                سبد خرید
+            </span>
+
+            <b id="mobileCartCount">
+                0
+            </b>
+
+        </a>
+
+
+        <a href="login.html"
+            class="mobile-nav-item">
+
+            <i class="fa-regular fa-user"></i>
+
+            <span>
+                حساب من
+            </span>
+
+        </a>
+
+    </nav>
+
+
+    <!-- =========================
+         SCRIPTS
+    ========================== -->
+
+    <script src="js/products.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/user-menu.js"></script>
+
+</body>
+
+</html>
+```

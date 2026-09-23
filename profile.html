@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>پنل کاربری | پارس الکتریک</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS اصلی -->
+    <link rel="stylesheet"
+          href="css/style.css">
+
+    <style>
+
+        /* =====================================
+           پنل کاربری
+        ===================================== */
+
+        .profile-page {
+            min-height: calc(100vh - 100px);
+            padding: 45px 20px;
+        }
+
+        .profile-container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        /* عنوان */
+
+        .profile-title {
+            margin-bottom: 25px;
+        }
+
+        .profile-title h1 {
+            color: #111827;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .profile-title p {
+            color: #4b5563;
+        }
+
+        /* Layout */
+
+        .profile-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 25px;
+        }
+
+        /* Sidebar */
+
+        .profile-sidebar {
+            background: #303a48;
+            border-radius: 18px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        /* عکس */
+
+        .profile-avatar-box {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .profile-avatar {
+            width: 105px;
+            height: 105px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ffc107;
+            background: #ffffff;
+        }
+
+        .profile-avatar-placeholder {
+            width: 105px;
+            height: 105px;
+            border-radius: 50%;
+            background: #ffffff;
+            color: #7b8794;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+            font-size: 40px;
+            border: 4px solid #ffc107;
+        }
+
+        .profile-name {
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 800;
+            margin-top: 12px;
+        }
+
+        .profile-phone {
+            color: #cbd5e1;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        /* منوی پنل */
+
+        .profile-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .profile-menu a,
+        .profile-menu button {
+            width: 100%;
+            border: none;
+            background: transparent;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 13px 15px;
+            border-radius: 10px;
+            text-align: right;
+            font-family: inherit;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .profile-menu a:hover,
+        .profile-menu button:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .profile-menu .active {
+            background: #ffc107;
+            color: #111827;
+            font-weight: 800;
+        }
+
+        .profile-menu .logout {
+            color: #ff8a8a;
+            margin-top: 10px;
+        }
+
+        /* محتوای اصلی */
+
+        .profile-content {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .profile-content h2 {
+            color: #111827;
+            margin-bottom: 25px;
+        }
+
+        /* کارت اطلاعات */
+
+        .profile-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 14px;
+            padding: 22px;
+            margin-bottom: 20px;
+        }
+
+        .profile-card h3 {
+            color: #111827;
+            margin-bottom: 18px;
+            font-size: 18px;
+        }
+
+        /* آپلود عکس */
+
+        .avatar-upload {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .avatar-upload label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #ffc107;
+            color: #111827;
+            padding: 10px 16px;
+            border-radius: 9px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .avatar-upload input {
+            display: none;
+        }
+
+        /* فرم */
+
+        .profile-form-group {
+            margin-bottom: 18px;
+        }
+
+        .profile-form-group label {
+            display: block;
+            color: #111827;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .profile-form-group input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 13px 15px;
+            border: 1px solid #d1d5db;
+            border-radius: 9px;
+            font-family: inherit;
+            font-size: 14px;
+            color: #111827;
+            background: #ffffff;
+            outline: none;
+        }
+
+        .profile-form-group input:focus {
+            border-color: #ffc107;
+            box-shadow: 0 0 0 3px rgba(255,193,7,0.12);
+        }
+
+        .profile-form-group input:disabled {
+            background: #f3f4f6;
+            color: #6b7280;
+        }
+
+        /* دکمه ذخیره */
+
+        .save-profile-btn {
+            border: none;
+            background: #ffc107;
+            color: #111827;
+            padding: 13px 25px;
+            border-radius: 9px;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .save-profile-btn:hover {
+            background: #e0a800;
+        }
+
+        /* پیام */
+
+        .profile-message {
+            display: none;
+            padding: 12px;
+            border-radius: 9px;
+            margin-bottom: 18px;
+            font-weight: 600;
+        }
+
+        .profile-message.success {
+            display: block;
+            background: #e9f8ed;
+            color: #287a35;
+        }
+
+        /* کارت‌های میانبر */
+
+        .profile-shortcuts {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .shortcut-card {
+            background: #303a48;
+            border-radius: 13px;
+            padding: 20px;
+            text-align: center;
+            color: #ffffff;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .shortcut-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .shortcut-card i {
+            font-size: 25px;
+            color: #ffc107;
+            margin-bottom: 10px;
+        }
+
+        .shortcut-card span {
+            display: block;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        /* موبایل */
+
+        @media (max-width: 800px) {
+
+            .profile-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-sidebar {
+                order: 1;
+            }
+
+            .profile-content {
+                order: 2;
+            }
+
+            .profile-shortcuts {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================
+     HEADER
+===================================== -->
+
+<header class="main-header">
+
+    <div class="container header-content">
+
+        <a href="index.html"
+           class="logo">
+
+            <div class="logo-icon">
+                <i class="fa-solid fa-bolt"></i>
+            </div>
+
+            <div class="logo-text">
+
+                <strong>
+                    پارس الکتریک
+                </strong>
+
+                <small>
+                    فروشگاه تخصصی برق
+                </small>
+
+            </div>
+
+        </a>
+
+
+        <div class="header-actions">
+
+            <a href="index.html"
+               class="header-action">
+
+                <i class="fa-solid fa-house"></i>
+
+                <span>
+                    خانه
+                </span>
+
+            </a>
+
+            <a href="cart.html"
+               class="header-action">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                <span>
+                    سبد خرید
+                </span>
+
+            </a>
+
+            <button
+                id="themeToggle"
+                class="theme-toggle">
+
+                <i class="fa-solid fa-moon"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================
+     PROFILE PAGE
+===================================== -->
+
+<main class="profile-page">
+
+    <div class="profile-container">
+
+
+        <div class="profile-title">
+
+            <h1>
+                پنل کاربری
+            </h1>
+
+            <p>
+                اطلاعات حساب و تنظیمات پروفایل شما
+            </p>
+
+        </div>
+
+
+        <div class="profile-layout">
+
+
+            <!-- =================================
+                 SIDEBAR
+            ================================== -->
+
+            <aside class="profile-sidebar">
+
+
+                <div class="profile-avatar-box">
+
+                    <div
+                        id="avatarContainer"
+                        class="profile-avatar-placeholder">
+
+                        <i class="fa-solid fa-user"></i>
+
+                    </div>
+
+                    <div
+                        id="profileName"
+                        class="profile-name">
+
+                        کاربر
+                    </div>
+
+                    <div
+                        id="profilePhone"
+                        class="profile-phone">
+
+                        09123456789
+
+                    </div>
+
+                </div>
+
+
+                <nav class="profile-menu">
+
+                    <a href="#profile"
+                       class="active">
+
+                        <i class="fa-solid fa-user"></i>
+
+                        اطلاعات حساب
+
+                    </a>
+
+
+                    <a href="cart.html">
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                        سبد خرید
+
+                    </a>
+
+
+                    <a href="favorites.html">
+
+                        <i class="fa-solid fa-heart"></i>
+
+                        علاقه‌مندی‌ها
+
+                     </a>
+                     
+                     
+                    <a href="orders.html">
+
+                        <i class="fa-solid fa-box"></i>
+
+                        سفارش‌های من
+
+                        
+                    </a>
+
+
+                    <a href="change-password.html">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        امنیت حساب  
+
+                    </a>
+                    <button
+                        id="logoutButton"
+                        class="logout">
+
+                        <i class="fa-solid fa-right-from-bracket"></i>
+
+                        خروج از حساب
+
+                    </button>
+
+                </nav>
+
+            </aside>
+
+
+            <!-- =================================
+                 CONTENT
+            ================================== -->
+
+            <section class="profile-content"
+                     id="profile">
+
+
+                <h2>
+                    اطلاعات حساب
+                </h2>
+
+
+                <div
+                    id="profileMessage"
+                    class="profile-message">
+
+                </div>
+
+
+                <!-- عکس پروفایل -->
+
+                <div class="profile-card">
+
+                    <h3>
+                        عکس پروفایل
+                    </h3>
+
+                    <div class="avatar-upload">
+
+                        <label for="avatarInput">
+
+                            <i class="fa-solid fa-camera"></i>
+
+                            انتخاب عکس
+
+                        </label>
+
+                        <input
+                            type="file"
+                            id="avatarInput"
+                            accept="image/*">
+
+                    </div>
+
+                </div>
+
+
+                <!-- اطلاعات شخصی -->
+
+                <div class="profile-card">
+
+                    <h3>
+                        اطلاعات شخصی
+                    </h3>
+
+
+                    <form id="profileForm">
+
+
+                        <div class="profile-form-group">
+
+                            <label for="profileNameInput">
+
+                                نام و نام خانوادگی
+
+                            </label>
+
+                            <input
+                                type="text"
+                                id="profileNameInput"
+                                placeholder="نام و نام خانوادگی">
+
+                        </div>
+
+
+                        <div class="profile-form-group">
+
+                            <label for="profilePhoneInput">
+
+                                شماره موبایل
+
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="profilePhoneInput"
+                                disabled>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="save-profile-btn">
+
+                            <i class="fa-solid fa-floppy-disk"></i>
+
+                            ذخیره تغییرات
+
+                        </button>
+
+
+                    </form>
+
+                </div>
+
+
+                <!-- میانبرها -->
+
+                <div class="profile-card">
+
+                    <h3>
+                        دسترسی سریع
+                    </h3>
+
+
+                    <div class="profile-shortcuts">
+
+
+                        <a href="cart.html"
+                           class="shortcut-card">
+
+                            <i class="fa-solid fa-cart-shopping"></i>
+
+                            <span>
+                                سبد خرید
+                            </span>
+
+                        </a>
+
+
+                        <a href="favorites.html"
+                           class="shortcut-card">
+
+                            <i class="fa-solid fa-heart"></i>
+
+                            <span>
+                                علاقه‌مندی‌ها
+                            </span>
+
+                        </a>
+
+
+                        <a href="#orders"
+                           class="shortcut-card">
+
+                            <i class="fa-solid fa-box"></i>
+
+                            <span>
+                                سفارش‌های من
+                            </span>
+
+                        </a>
+
+
+                    </div>
+
+                </div>
+
+
+            </section>
+            
+            <section id="orders" class="profile-section">
+
+    <h2>سفارش‌های من</h2>
+
+    <div id="ordersList">
+        <p>در حال بارگذاری سفارش‌ها...</p>
+    </div>
+
+</section>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<script src="js/profile.js"></script>
+
+</body>
+
+</html>

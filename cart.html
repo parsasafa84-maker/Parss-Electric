@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>سبد خرید | پارس الکتریک</title>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- استایل اصلی -->
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <style>
+
+        /* =====================================
+           صفحه سبد خرید
+        ===================================== */
+
+        .cart-page {
+            padding: 40px 0 80px;
+        }
+
+        .cart-layout {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 25px;
+            align-items: start;
+        }
+
+        .cart-box,
+        .cart-summary {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 5px 25px rgba(0,0,0,.05);
+        }
+
+        .dark-mode .cart-box,
+        .dark-mode .cart-summary {
+            background: #182230;
+        }
+
+        .cart-box {
+            padding: 25px;
+        }
+
+        .cart-title {
+            font-size: 22px;
+            margin-bottom: 25px;
+        }
+
+        .cart-item {
+            display: grid;
+            grid-template-columns: 110px 1fr auto;
+            gap: 20px;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .dark-mode .cart-item {
+            border-color: #303b4b;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item-image {
+            width: 110px;
+            height: 110px;
+            background: #f7f8fa;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .dark-mode .cart-item-image {
+            background: #111a27;
+        }
+
+        .cart-item-image img {
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+        }
+
+        .cart-item-name {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.8;
+        }
+
+        .cart-item-brand {
+            color: #888;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .cart-item-price {
+            color: #e0a800;
+            font-weight: 800;
+        }
+
+        .cart-item-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 15px;
+        }
+
+        .cart-quantity {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 9px;
+            overflow: hidden;
+        }
+
+        .dark-mode .cart-quantity {
+            border-color: #3a4658;
+        }
+
+        .cart-quantity button {
+            width: 36px;
+            height: 36px;
+            border: none;
+            background: #f5f5f5;
+            cursor: pointer;
+            font-size: 17px;
+        }
+
+        .dark-mode .cart-quantity button {
+            background: #111a27;
+            color: #fff;
+        }
+
+        .cart-quantity span {
+            width: 40px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .remove-cart-item {
+            border: none;
+            background: transparent;
+            color: #dc2626;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        /* =====================================
+           خلاصه سفارش
+        ===================================== */
+
+        .cart-summary {
+            padding: 25px;
+            position: sticky;
+            top: 20px;
+        }
+
+        .cart-summary h2 {
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 12px 0;
+            color: #666;
+        }
+
+        .dark-mode .summary-row {
+            color: #ccc;
+        }
+
+        .summary-total {
+            border-top: 1px solid #eee;
+            margin-top: 10px;
+            padding-top: 18px;
+            font-weight: 800;
+            color: #101828;
+            font-size: 18px;
+        }
+
+        .dark-mode .summary-total {
+            border-color: #303b4b;
+            color: #fff;
+        }
+
+        .summary-total strong {
+            color: #e0a800;
+        }
+
+        .checkout-button {
+            width: 100%;
+            border: none;
+            background: #ffc107;
+            color: #101828;
+            padding: 15px;
+            border-radius: 11px;
+            font-size: 16px;
+            font-weight: 800;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .checkout-button:hover {
+            background: #e0a800;
+        }
+
+        /* =====================================
+           سبد خالی
+        ===================================== */
+
+        .empty-cart {
+            text-align: center;
+            padding: 70px 20px;
+        }
+
+        .empty-cart i {
+            font-size: 65px;
+            color: #ffc107;
+            margin-bottom: 20px;
+        }
+
+        .empty-cart h2 {
+            margin-bottom: 10px;
+        }
+
+        .empty-cart p {
+            color: #777;
+            margin-bottom: 25px;
+        }
+
+        .continue-shopping {
+            display: inline-block;
+            background: #ffc107;
+            color: #101828;
+            padding: 13px 25px;
+            border-radius: 10px;
+            font-weight: 700;
+        }
+
+        /* =====================================
+           موبایل
+        ===================================== */
+
+        @media (max-width: 900px) {
+
+            .cart-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .cart-summary {
+                position: static;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .cart-box {
+                padding: 15px;
+            }
+
+            .cart-item {
+                grid-template-columns: 80px 1fr;
+                gap: 12px;
+            }
+
+            .cart-item-image {
+                width: 80px;
+                height: 80px;
+            }
+
+            .cart-item-actions {
+                grid-column: 1 / -1;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- ================================
+         هدر
+    ================================= -->
+
+    <header class="main-header">
+
+        <div class="container header-content">
+
+            <a
+                href="index.html"
+                class="logo"
+            >
+
+                <div class="logo-icon">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+
+                <div class="logo-text">
+
+                    <strong>
+                        پارس الکتریک
+                    </strong>
+
+                    <span>
+                        فروشگاه تخصصی برق
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <div class="header-actions">
+
+                <a
+                    href="index.html"
+                    class="header-action"
+                >
+                    <i class="fa-solid fa-house"></i>
+                    <span>خانه</span>
+                </a>
+
+
+                <button
+                    class="header-action theme-toggle"
+                    id="themeToggle"
+                    type="button"
+                >
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================================
+         صفحه سبد خرید
+    ================================= -->
+
+    <main class="cart-page">
+
+        <div class="container">
+
+            <a
+                href="index.html"
+                style="
+                    display:inline-flex;
+                    align-items:center;
+                    gap:8px;
+                    margin-bottom:20px;
+                    color:#666;
+                "
+            >
+                <i class="fa-solid fa-arrow-right"></i>
+                بازگشت به فروشگاه
+            </a>
+
+
+            <div class="cart-layout">
+
+
+                <!-- ==========================
+                     محصولات سبد
+                =========================== -->
+
+                <section class="cart-box">
+
+                    <h1 class="cart-title">
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                        سبد خرید
+
+                    </h1>
+
+
+                    <div id="cartItems">
+
+                        <div
+                            style="
+                                text-align:center;
+                                padding:50px;
+                            "
+                        >
+                            در حال بارگذاری...
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ==========================
+                     خلاصه سفارش
+                =========================== -->
+
+                <aside class="cart-summary">
+
+                    <h2>
+                        خلاصه سفارش
+                    </h2>
+
+
+                    <div class="summary-row">
+
+                        <span>
+                            تعداد کالا
+                        </span>
+
+                        <span id="summaryCount">
+                            ۰
+                        </span>
+
+                    </div>
+
+
+                    <div class="summary-row">
+
+                        <span>
+                            مجموع قیمت کالاها
+                        </span>
+
+                        <span id="summarySubtotal">
+                            ۰ تومان
+                        </span>
+
+                    </div>
+
+
+                    <div class="summary-row">
+
+                        <span>
+                            تخفیف
+                        </span>
+
+                        <span id="summaryDiscount">
+                            ۰ تومان
+                        </span>
+
+                    </div>
+
+
+                    <div class="summary-row">
+
+                        <span>
+                            هزینه ارسال
+                        </span>
+
+                        <span id="summaryShipping">
+                            محاسبه در مرحله بعد
+                        </span>
+
+                    </div>
+
+
+                    <div class="summary-row summary-total">
+
+                        <span>
+                            مبلغ قابل پرداخت
+                        </span>
+
+                        <strong id="summaryTotal">
+                            ۰ تومان
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="checkout-button"
+                        id="checkoutButton"
+                    >
+
+                        ادامه و ثبت سفارش
+
+                        <i class="fa-solid fa-arrow-left"></i>
+
+                    </button>
+
+                </aside>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- فایل اطلاعات محصولات -->
+    <script src="js/products.js"></script>
+
+    <!-- فایل عملکرد سبد خرید -->
+    <script src="js/cart.js"></script>
+
+</body>
+
+</html>
